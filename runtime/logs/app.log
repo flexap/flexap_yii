@@ -1,0 +1,324 @@
+2016-12-06 16:45:13 [127.0.0.1][4][eqcp2b0882nnapgr1mm7vdgqh2][error][yii\db\Exception] exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'flexap.auth_assignment' doesn't exist' in /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/db/Command.php:900
+Stack trace:
+#0 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/db/Command.php(900): PDOStatement->execute()
+#1 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/db/Command.php(362): yii\db\Command->queryInternal('<span class="st...', '<span class="ke...')
+#2 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/db/Query.php(213): yii\db\Command->queryAll()
+#3 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/rbac/DbManager.php(689): yii\db\Query->all(Object(yii\db\Connection))
+#4 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/rbac/DbManager.php(123): yii\rbac\DbManager->getAssignments('<span class="nu...')
+#5 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/web/User.php(706): yii\rbac\DbManager->checkAccess('<span class="nu...', '<span class="st...', '[]')
+#6 /mnt/data/projects/software/web/flexap/flexap/models/user/User.php(19): yii\web\User->can('<span class="st...')
+#7 /mnt/data/projects/software/web/flexap/flexap/views/layouts/main.php(40): app\models\user\User->getIsAdmin()
+#8 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/base/View.php(328): require('/mnt/data/proje...')
+#9 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/base/View.php(250): yii\base\View->renderPhpFile('<span class="st...', '[<span class="s...')
+#10 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/base/Controller.php(394): yii\base\View->renderFile('<span class="st...', '[<span class="s...', Object(app\controllers\SiteController))
+#11 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/base/Controller.php(380): yii\base\Controller->renderContent('<span class="st...')
+#12 /mnt/data/projects/software/web/flexap/flexap/controllers/SiteController.php(62): yii\base\Controller->render('<span class="st...')
+#13 [internal function]: app\controllers\SiteController->actionIndex()
+#14 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array('[<span class="t...', '[]')
+#15 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/base/Controller.php(156): yii\base\InlineAction->runWithParams('[]')
+#16 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/base/Module.php(522): yii\base\Controller->runAction('<span class="st...', '[]')
+#17 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/web/Application.php(102): yii\base\Module->runAction('<span class="st...', '[]')
+#18 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/base/Application.php(379): yii\web\Application->handleRequest(Object(yii\web\Request))
+#19 /mnt/data/projects/software/web/flexap/flexap/web/index.php(12): yii\base\Application->run()
+#20 {main}
+
+Next exception 'yii\db\Exception' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'flexap.auth_assignment' doesn't exist
+The SQL being executed was: SELECT * FROM `auth_assignment` WHERE `user_id`='4'' in /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/db/Schema.php:637
+Stack trace:
+#0 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/db/Command.php(915): yii\db\Schema->convertException(Object(PDOException), 'SELECT * FROM `...')
+#1 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/db/Command.php(362): yii\db\Command->queryInternal('<span class="st...', '<span class="ke...')
+#2 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/db/Query.php(213): yii\db\Command->queryAll()
+#3 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/rbac/DbManager.php(689): yii\db\Query->all(Object(yii\db\Connection))
+#4 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/rbac/DbManager.php(123): yii\rbac\DbManager->getAssignments('<span class="nu...')
+#5 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/web/User.php(706): yii\rbac\DbManager->checkAccess('<span class="nu...', '<span class="st...', '[]')
+#6 /mnt/data/projects/software/web/flexap/flexap/models/user/User.php(19): yii\web\User->can('<span class="st...')
+#7 /mnt/data/projects/software/web/flexap/flexap/views/layouts/main.php(40): app\models\user\User->getIsAdmin()
+#8 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/base/View.php(328): require('/mnt/data/proje...')
+#9 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/base/View.php(250): yii\base\View->renderPhpFile('<span class="st...', '[<span class="s...')
+#10 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/base/Controller.php(394): yii\base\View->renderFile('<span class="st...', '[<span class="s...', Object(app\controllers\SiteController))
+#11 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/base/Controller.php(380): yii\base\Controller->renderContent('<span class="st...')
+#12 /mnt/data/projects/software/web/flexap/flexap/controllers/SiteController.php(62): yii\base\Controller->render('<span class="st...')
+#13 [internal function]: app\controllers\SiteController->actionIndex()
+#14 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array('[<span class="t...', '[]')
+#15 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/base/Controller.php(156): yii\base\InlineAction->runWithParams('[]')
+#16 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/base/Module.php(522): yii\base\Controller->runAction('<span class="st...', '[]')
+#17 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/web/Application.php(102): yii\base\Module->runAction('<span class="st...', '[]')
+#18 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/base/Application.php(379): yii\web\Application->handleRequest(Object(yii\web\Request))
+#19 /mnt/data/projects/software/web/flexap/flexap/web/index.php(12): yii\base\Application->run()
+#20 {main}
+Additional Information:
+Array
+(
+    [0] => 42S02
+    [1] => 1146
+    [2] => Table 'flexap.auth_assignment' doesn't exist
+)
+
+2016-12-06 16:45:13 [127.0.0.1][4][eqcp2b0882nnapgr1mm7vdgqh2][info][application] $_COOKIE = [
+    '_language' => '99ff3667fd2b1d2ce18125ee17cc98f75e2b04dffafbc5a4d63564de43dc7e69a:2:{i:0;s:9:\"_language\";i:1;s:2:\"ru\";}'
+    '_csrf' => '90e2fc4b61d3c1ff45712ed40e406ca236f9be5898309a17f08b65716b93517fa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"ugw2KW-nMVS1spTwnLMhw71clvYL5-dY\";}'
+    'PHPSESSID' => 'eqcp2b0882nnapgr1mm7vdgqh2'
+    'JSESSIONID' => '0005AC36DB9B83E1FC8FBDDD8B2AA676'
+    '_identity' => 'e2baa9f7926f0e8d8fef759c9b3a922dbb9ef21c00c0aee28c77f352b64ecab8a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[4,\"CrRYgihRhaDoBnY13KUV5bGnwA3Svtk8\",1209600]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '_language' => 'ru'
+    '__captcha/site/captcha' => 'ropnfe'
+    '__captcha/site/captchacount' => 1
+    '__id' => 4
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost:90'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:44.0) Gecko/20100101 Firefox/44.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost:90/ru/user/login'
+    'HTTP_COOKIE' => '_language=99ff3667fd2b1d2ce18125ee17cc98f75e2b04dffafbc5a4d63564de43dc7e69a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_language%22%3Bi%3A1%3Bs%3A2%3A%22ru%22%3B%7D; _csrf=90e2fc4b61d3c1ff45712ed40e406ca236f9be5898309a17f08b65716b93517fa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22ugw2KW-nMVS1spTwnLMhw71clvYL5-dY%22%3B%7D; PHPSESSID=eqcp2b0882nnapgr1mm7vdgqh2; JSESSIONID=0005AC36DB9B83E1FC8FBDDD8B2AA676; _identity=e2baa9f7926f0e8d8fef759c9b3a922dbb9ef21c00c0aee28c77f352b64ecab8a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B4%2C%22CrRYgihRhaDoBnY13KUV5bGnwA3Svtk8%22%2C1209600%5D%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Ubuntu) Server at localhost Port 90</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '90'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/flexap/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/flexap/web'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => '/var/www/flexap/web/index.php'
+    'REMOTE_PORT' => '34347'
+    'REDIRECT_URL' => '/ru'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/ru'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1481042713.838
+    'REQUEST_TIME' => 1481042713
+]
+2016-12-06 16:45:32 [127.0.0.1][4][eqcp2b0882nnapgr1mm7vdgqh2][error][yii\db\Exception] exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'flexap.auth_assignment' doesn't exist' in /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/db/Command.php:900
+Stack trace:
+#0 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/db/Command.php(900): PDOStatement->execute()
+#1 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/db/Command.php(362): yii\db\Command->queryInternal('<span class="st...', '<span class="ke...')
+#2 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/db/Query.php(213): yii\db\Command->queryAll()
+#3 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/rbac/DbManager.php(689): yii\db\Query->all(Object(yii\db\Connection))
+#4 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/rbac/DbManager.php(123): yii\rbac\DbManager->getAssignments('<span class="nu...')
+#5 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/web/User.php(706): yii\rbac\DbManager->checkAccess('<span class="nu...', '<span class="st...', '[]')
+#6 /mnt/data/projects/software/web/flexap/flexap/models/user/User.php(19): yii\web\User->can('<span class="st...')
+#7 /mnt/data/projects/software/web/flexap/flexap/views/layouts/main.php(40): app\models\user\User->getIsAdmin()
+#8 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/base/View.php(328): require('/mnt/data/proje...')
+#9 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/base/View.php(250): yii\base\View->renderPhpFile('<span class="st...', '[<span class="s...')
+#10 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/base/Controller.php(394): yii\base\View->renderFile('<span class="st...', '[<span class="s...', Object(app\controllers\SiteController))
+#11 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/base/Controller.php(380): yii\base\Controller->renderContent('<span class="st...')
+#12 /mnt/data/projects/software/web/flexap/flexap/controllers/SiteController.php(62): yii\base\Controller->render('<span class="st...')
+#13 [internal function]: app\controllers\SiteController->actionIndex()
+#14 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array('[<span class="t...', '[]')
+#15 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/base/Controller.php(156): yii\base\InlineAction->runWithParams('[]')
+#16 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/base/Module.php(522): yii\base\Controller->runAction('<span class="st...', '[]')
+#17 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/web/Application.php(102): yii\base\Module->runAction('<span class="st...', '[]')
+#18 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/base/Application.php(379): yii\web\Application->handleRequest(Object(yii\web\Request))
+#19 /mnt/data/projects/software/web/flexap/flexap/web/index.php(12): yii\base\Application->run()
+#20 {main}
+
+Next exception 'yii\db\Exception' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'flexap.auth_assignment' doesn't exist
+The SQL being executed was: SELECT * FROM `auth_assignment` WHERE `user_id`='4'' in /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/db/Schema.php:637
+Stack trace:
+#0 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/db/Command.php(915): yii\db\Schema->convertException(Object(PDOException), 'SELECT * FROM `...')
+#1 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/db/Command.php(362): yii\db\Command->queryInternal('<span class="st...', '<span class="ke...')
+#2 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/db/Query.php(213): yii\db\Command->queryAll()
+#3 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/rbac/DbManager.php(689): yii\db\Query->all(Object(yii\db\Connection))
+#4 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/rbac/DbManager.php(123): yii\rbac\DbManager->getAssignments('<span class="nu...')
+#5 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/web/User.php(706): yii\rbac\DbManager->checkAccess('<span class="nu...', '<span class="st...', '[]')
+#6 /mnt/data/projects/software/web/flexap/flexap/models/user/User.php(19): yii\web\User->can('<span class="st...')
+#7 /mnt/data/projects/software/web/flexap/flexap/views/layouts/main.php(40): app\models\user\User->getIsAdmin()
+#8 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/base/View.php(328): require('/mnt/data/proje...')
+#9 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/base/View.php(250): yii\base\View->renderPhpFile('<span class="st...', '[<span class="s...')
+#10 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/base/Controller.php(394): yii\base\View->renderFile('<span class="st...', '[<span class="s...', Object(app\controllers\SiteController))
+#11 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/base/Controller.php(380): yii\base\Controller->renderContent('<span class="st...')
+#12 /mnt/data/projects/software/web/flexap/flexap/controllers/SiteController.php(62): yii\base\Controller->render('<span class="st...')
+#13 [internal function]: app\controllers\SiteController->actionIndex()
+#14 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array('[<span class="t...', '[]')
+#15 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/base/Controller.php(156): yii\base\InlineAction->runWithParams('[]')
+#16 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/base/Module.php(522): yii\base\Controller->runAction('<span class="st...', '[]')
+#17 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/web/Application.php(102): yii\base\Module->runAction('<span class="st...', '[]')
+#18 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/base/Application.php(379): yii\web\Application->handleRequest(Object(yii\web\Request))
+#19 /mnt/data/projects/software/web/flexap/flexap/web/index.php(12): yii\base\Application->run()
+#20 {main}
+Additional Information:
+Array
+(
+    [0] => 42S02
+    [1] => 1146
+    [2] => Table 'flexap.auth_assignment' doesn't exist
+)
+
+2016-12-06 16:45:32 [127.0.0.1][4][eqcp2b0882nnapgr1mm7vdgqh2][info][application] $_COOKIE = [
+    '_language' => '99ff3667fd2b1d2ce18125ee17cc98f75e2b04dffafbc5a4d63564de43dc7e69a:2:{i:0;s:9:\"_language\";i:1;s:2:\"ru\";}'
+    '_csrf' => '90e2fc4b61d3c1ff45712ed40e406ca236f9be5898309a17f08b65716b93517fa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"ugw2KW-nMVS1spTwnLMhw71clvYL5-dY\";}'
+    'PHPSESSID' => 'eqcp2b0882nnapgr1mm7vdgqh2'
+    'JSESSIONID' => '0005AC36DB9B83E1FC8FBDDD8B2AA676'
+    '_identity' => 'e2baa9f7926f0e8d8fef759c9b3a922dbb9ef21c00c0aee28c77f352b64ecab8a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[4,\"CrRYgihRhaDoBnY13KUV5bGnwA3Svtk8\",1209600]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '_language' => 'ru'
+    '__captcha/site/captcha' => 'ropnfe'
+    '__captcha/site/captchacount' => 1
+    '__id' => 4
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost:90'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:44.0) Gecko/20100101 Firefox/44.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost:90/ru/user/login'
+    'HTTP_COOKIE' => '_language=99ff3667fd2b1d2ce18125ee17cc98f75e2b04dffafbc5a4d63564de43dc7e69a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_language%22%3Bi%3A1%3Bs%3A2%3A%22ru%22%3B%7D; _csrf=90e2fc4b61d3c1ff45712ed40e406ca236f9be5898309a17f08b65716b93517fa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22ugw2KW-nMVS1spTwnLMhw71clvYL5-dY%22%3B%7D; PHPSESSID=eqcp2b0882nnapgr1mm7vdgqh2; JSESSIONID=0005AC36DB9B83E1FC8FBDDD8B2AA676; _identity=e2baa9f7926f0e8d8fef759c9b3a922dbb9ef21c00c0aee28c77f352b64ecab8a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B4%2C%22CrRYgihRhaDoBnY13KUV5bGnwA3Svtk8%22%2C1209600%5D%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Ubuntu) Server at localhost Port 90</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '90'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/flexap/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/flexap/web'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => '/var/www/flexap/web/index.php'
+    'REMOTE_PORT' => '34350'
+    'REDIRECT_URL' => '/ru'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/ru'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1481042732.276
+    'REQUEST_TIME' => 1481042732
+]
+2016-12-06 16:45:35 [127.0.0.1][4][eqcp2b0882nnapgr1mm7vdgqh2][error][yii\db\Exception] exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'flexap.auth_assignment' doesn't exist' in /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/db/Command.php:900
+Stack trace:
+#0 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/db/Command.php(900): PDOStatement->execute()
+#1 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/db/Command.php(362): yii\db\Command->queryInternal('<span class="st...', '<span class="ke...')
+#2 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/db/Query.php(213): yii\db\Command->queryAll()
+#3 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/rbac/DbManager.php(689): yii\db\Query->all(Object(yii\db\Connection))
+#4 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/rbac/DbManager.php(123): yii\rbac\DbManager->getAssignments('<span class="nu...')
+#5 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/web/User.php(706): yii\rbac\DbManager->checkAccess('<span class="nu...', '<span class="st...', '[]')
+#6 /mnt/data/projects/software/web/flexap/flexap/models/user/User.php(19): yii\web\User->can('<span class="st...')
+#7 /mnt/data/projects/software/web/flexap/flexap/views/layouts/main.php(40): app\models\user\User->getIsAdmin()
+#8 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/base/View.php(328): require('/mnt/data/proje...')
+#9 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/base/View.php(250): yii\base\View->renderPhpFile('<span class="st...', '[<span class="s...')
+#10 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/base/Controller.php(394): yii\base\View->renderFile('<span class="st...', '[<span class="s...', Object(app\controllers\SiteController))
+#11 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/base/Controller.php(380): yii\base\Controller->renderContent('<span class="st...')
+#12 /mnt/data/projects/software/web/flexap/flexap/controllers/SiteController.php(62): yii\base\Controller->render('<span class="st...')
+#13 [internal function]: app\controllers\SiteController->actionIndex()
+#14 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array('[<span class="t...', '[]')
+#15 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/base/Controller.php(156): yii\base\InlineAction->runWithParams('[]')
+#16 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/base/Module.php(522): yii\base\Controller->runAction('<span class="st...', '[]')
+#17 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/web/Application.php(102): yii\base\Module->runAction('<span class="st...', '[]')
+#18 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/base/Application.php(379): yii\web\Application->handleRequest(Object(yii\web\Request))
+#19 /mnt/data/projects/software/web/flexap/flexap/web/index.php(12): yii\base\Application->run()
+#20 {main}
+
+Next exception 'yii\db\Exception' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'flexap.auth_assignment' doesn't exist
+The SQL being executed was: SELECT * FROM `auth_assignment` WHERE `user_id`='4'' in /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/db/Schema.php:637
+Stack trace:
+#0 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/db/Command.php(915): yii\db\Schema->convertException(Object(PDOException), 'SELECT * FROM `...')
+#1 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/db/Command.php(362): yii\db\Command->queryInternal('<span class="st...', '<span class="ke...')
+#2 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/db/Query.php(213): yii\db\Command->queryAll()
+#3 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/rbac/DbManager.php(689): yii\db\Query->all(Object(yii\db\Connection))
+#4 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/rbac/DbManager.php(123): yii\rbac\DbManager->getAssignments('<span class="nu...')
+#5 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/web/User.php(706): yii\rbac\DbManager->checkAccess('<span class="nu...', '<span class="st...', '[]')
+#6 /mnt/data/projects/software/web/flexap/flexap/models/user/User.php(19): yii\web\User->can('<span class="st...')
+#7 /mnt/data/projects/software/web/flexap/flexap/views/layouts/main.php(40): app\models\user\User->getIsAdmin()
+#8 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/base/View.php(328): require('/mnt/data/proje...')
+#9 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/base/View.php(250): yii\base\View->renderPhpFile('<span class="st...', '[<span class="s...')
+#10 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/base/Controller.php(394): yii\base\View->renderFile('<span class="st...', '[<span class="s...', Object(app\controllers\SiteController))
+#11 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/base/Controller.php(380): yii\base\Controller->renderContent('<span class="st...')
+#12 /mnt/data/projects/software/web/flexap/flexap/controllers/SiteController.php(62): yii\base\Controller->render('<span class="st...')
+#13 [internal function]: app\controllers\SiteController->actionIndex()
+#14 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array('[<span class="t...', '[]')
+#15 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/base/Controller.php(156): yii\base\InlineAction->runWithParams('[]')
+#16 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/base/Module.php(522): yii\base\Controller->runAction('<span class="st...', '[]')
+#17 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/web/Application.php(102): yii\base\Module->runAction('<span class="st...', '[]')
+#18 /mnt/data/projects/software/web/flexap/flexap/vendor/yiisoft/yii2/base/Application.php(379): yii\web\Application->handleRequest(Object(yii\web\Request))
+#19 /mnt/data/projects/software/web/flexap/flexap/web/index.php(12): yii\base\Application->run()
+#20 {main}
+Additional Information:
+Array
+(
+    [0] => 42S02
+    [1] => 1146
+    [2] => Table 'flexap.auth_assignment' doesn't exist
+)
+
+2016-12-06 16:45:35 [127.0.0.1][4][eqcp2b0882nnapgr1mm7vdgqh2][info][application] $_COOKIE = [
+    '_language' => '99ff3667fd2b1d2ce18125ee17cc98f75e2b04dffafbc5a4d63564de43dc7e69a:2:{i:0;s:9:\"_language\";i:1;s:2:\"ru\";}'
+    '_csrf' => '90e2fc4b61d3c1ff45712ed40e406ca236f9be5898309a17f08b65716b93517fa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"ugw2KW-nMVS1spTwnLMhw71clvYL5-dY\";}'
+    'PHPSESSID' => 'eqcp2b0882nnapgr1mm7vdgqh2'
+    'JSESSIONID' => '0005AC36DB9B83E1FC8FBDDD8B2AA676'
+    '_identity' => 'e2baa9f7926f0e8d8fef759c9b3a922dbb9ef21c00c0aee28c77f352b64ecab8a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[4,\"CrRYgihRhaDoBnY13KUV5bGnwA3Svtk8\",1209600]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '_language' => 'ru'
+    '__captcha/site/captcha' => 'ropnfe'
+    '__captcha/site/captchacount' => 1
+    '__id' => 4
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost:90'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:44.0) Gecko/20100101 Firefox/44.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_COOKIE' => '_language=99ff3667fd2b1d2ce18125ee17cc98f75e2b04dffafbc5a4d63564de43dc7e69a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_language%22%3Bi%3A1%3Bs%3A2%3A%22ru%22%3B%7D; _csrf=90e2fc4b61d3c1ff45712ed40e406ca236f9be5898309a17f08b65716b93517fa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22ugw2KW-nMVS1spTwnLMhw71clvYL5-dY%22%3B%7D; PHPSESSID=eqcp2b0882nnapgr1mm7vdgqh2; JSESSIONID=0005AC36DB9B83E1FC8FBDDD8B2AA676; _identity=e2baa9f7926f0e8d8fef759c9b3a922dbb9ef21c00c0aee28c77f352b64ecab8a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B4%2C%22CrRYgihRhaDoBnY13KUV5bGnwA3Svtk8%22%2C1209600%5D%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Ubuntu) Server at localhost Port 90</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '90'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/flexap/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/flexap/web'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => '/var/www/flexap/web/index.php'
+    'REMOTE_PORT' => '34351'
+    'REDIRECT_URL' => '/ru'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/ru'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1481042735.754
+    'REQUEST_TIME' => 1481042735
+]
