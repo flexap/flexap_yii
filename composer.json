@@ -18,7 +18,9 @@
         "yiisoft/yii2-swiftmailer": "~2.0.0",
         "dektrium/yii2-user": "0.9.*@dev",
         "dektrium/yii2-rbac": "dev-master",
-        "codemix/yii2-localeurls": "^1.4"
+        "codemix/yii2-localeurls": "^1.4",
+        "lav45/yii2-aceeditor": "1.1.*",
+        "bower-asset/jquery-resizable": "*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

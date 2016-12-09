@@ -1,0 +1,50 @@
+
+.panel-container-vertical {
+  display: flex;
+  flex-direction: column;
+  /*height: 500px;*/
+  overflow: hidden;
+}
+
+.panel-top {
+  flex: 0 0 auto;
+  min-height: 20px;
+}
+
+.splitter {
+    flex: 0 0 auto;
+    padding: 5px;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+.splitter:hover {
+    cursor: n-resize;
+}
+
+.splitter .form-group, .splitter .checkbox, .splitter input[type="checkbox"] {
+    margin-top: 0px;
+    margin-bottom: 0px;
+} 
+
+.action-panel {
+    margin-right: 10px;
+}
+
+.panel-bottom {
+  flex: 1 1 auto;
+  min-height: 20px;
+}
+
+.sql-output {
+    height: 100%;
+    padding: 5px;
+    border: 1px solid #D3D3D3;
+    border-radius: 2px;
+    font-family: "DejaVu Sans Mono", "Liberation Mono", monospace;
+    color: #fafafa;
+    background-color: #222222;
+}

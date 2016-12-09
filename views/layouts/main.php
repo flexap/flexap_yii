@@ -37,41 +37,51 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
-            !Yii::$app->user->isGuest && Yii::$app->user->identity->getIsAdmin() ? 
-                [
-                    'label' => Yii::t('app', 'Administration'),
-                    'items' => [
-                        ['label' => Yii::t('app', ''), 'url' => ['/']],
-                    ],
-                ]
-            : '',
-            !Yii::$app->user->isGuest && Yii::$app->user->identity->getIsAdmin() ? 
-                [
-                    'label' => Yii::t('app', 'Access control'),
-                    'items' => [
-                        ['label' => Yii::t('user', 'Users'), 'url' => ['/user/admin/index']],
-                        ['label' => Yii::t('user', 'Roles'), 'url' => ['/rbac/role']],
-                        ['label' => Yii::t('user', 'Permissions'), 'url' => ['/rbac/permission/index']],
-                        ['label' => Yii::t('app', 'Rules'), 'url' => ['/rbac/rule/index']],
-                    ],
-                ]
-            : '',
-            !Yii::$app->user->isGuest ?
-                [
-                    'label' => Yii::t('app', '(' . Yii::$app->user->identity->username . ')'),
-                    'items' => [
-                        ['label' => Yii::t('app', 'Profile'), 'url' => ['/user/settings/profile']],
-                        [
-                            'label' => Yii::t('app', 'Logout'), 
-                            'url' => ['/user/logout'],
-                            'linkOptions' => ['data-method' => 'post']
-                          ]
-                    ],
-                ]
-            : ['label' => Yii::t('app', 'Login'), 'url' => ['/user/login']],
-            Yii::$app->user->isGuest ? 
-                ['label' => Yii::t('app', 'Sign Up'), 'url' => ['/user/register']]
-            : '',
+            [
+                'label' => Yii::t('app', 'SQL'),
+                'url' => ['/sql/shell'],
+                'visible' => !Yii::$app->user->isGuest
+            ],
+            [
+                'label' => Yii::t('app', 'Administration'),
+                'items' => [
+                    ['label' => Yii::t('app', ''), 'url' => ['/']],
+                ],
+                'visible' => !Yii::$app->user->isGuest && Yii::$app->user->identity->getIsAdmin()
+            ],
+            [
+                'label' => Yii::t('app', 'Access control'),
+                'items' => [
+                    ['label' => Yii::t('user', 'Users'), 'url' => ['/user/admin/index']],
+                    ['label' => Yii::t('user', 'Roles'), 'url' => ['/rbac/role']],
+                    ['label' => Yii::t('user', 'Permissions'), 'url' => ['/rbac/permission/index']],
+                    ['label' => Yii::t('app', 'Rules'), 'url' => ['/rbac/rule/index']],
+                ],
+                'visible' => !Yii::$app->user->isGuest && Yii::$app->user->identity->getIsAdmin()
+            ],
+            [
+                'label' => Html::tag('strong', Yii::$app->user->isGuest ? '' : Yii::$app->user->identity->username),
+                'encode' => false,
+                'items' => [
+                    ['label' => Yii::t('app', 'Profile'), 'url' => ['/user/settings/profile']],
+                    [
+                        'label' => Yii::t('app', 'Logout'), 
+                        'url' => ['/user/logout'],
+                        'linkOptions' => ['data-method' => 'post']
+                    ]
+                ],
+                'visible' => !Yii::$app->user->isGuest
+            ],
+            [
+                'label' => Yii::t('app', 'Login'),
+                'url' => ['/user/login'],
+                'visible' => Yii::$app->user->isGuest
+            ],
+            [
+                'label' => Yii::t('app', 'Sign Up'),
+                'url' => ['/user/register'],
+                'visible' => Yii::$app->user->isGuest
+            ],
             [
                 'label' => strtoupper(Yii::$app->language),
                 'items' => [

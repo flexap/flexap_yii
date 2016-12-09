@@ -171,4 +171,8 @@ return [
     'Administration' => 'Администрирование',
     'Access control' => 'Управление доступом',
     'Rules' => 'Правила',
+    'Run SQL script' => 'Выполнить SQL код',
+    'Clean output' => 'Очистить вывод',
+    'Parameters' => 'Параметры',
+    'Use temp file' => 'Использовать временный файл'
 ];

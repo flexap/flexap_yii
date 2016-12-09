@@ -5,6 +5,7 @@ $mailer = require(__DIR__ . '/mailer.php');
 
 $config = [
     'id' => 'flexap',
+    'name' => 'FlexAP',
     'basePath' => dirname(__DIR__),
     'bootstrap' => [
         'log'
