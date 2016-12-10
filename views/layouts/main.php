@@ -9,6 +9,8 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
+use rmrevin\yii\fontawesome\FA;
+use app\service\DbManager;
 
 AppAsset::register($this);
 ?>
@@ -34,6 +36,48 @@ AppAsset::register($this);
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
     ]);
+    
+    $dbItems = [];
+    $dbNames = DbManager::getAvailableDbNames();
+    foreach ($dbNames as $dbname) {
+        $dbItems[] = [
+            'label' => $dbname,
+            'url' => ['/sql/db', 'dbname' => $dbname]
+        ];
+    }
+    
+    $navItems = [];
+    if (count($dbNames) >= 1) {
+        $navItems = [
+            count($dbNames) > 1 ?
+                [
+                    'label' => FA::icon('database') . ' ' . DbManager::getCurrentDbName(),
+                    'encode' => false,
+                    'items' => $dbItems,
+                    'visible' => !Yii::$app->user->isGuest
+                ]
+            :
+                [
+                    'label' => FA::icon('database') . ' ' . DbManager::getCurrentDbName(),
+                    'encode' => false,
+                    'url' => ['/sql/db'],
+                    'visible' => !Yii::$app->user->isGuest
+                ],
+        ];
+    } else {
+        $navItems[] = [
+            'label' => FA::icon('refresh'),
+            'encode' => false,
+            'url' => ['/sql/db'],
+            'visible' => !Yii::$app->user->isGuest
+        ];
+    }
+    
+    echo Nav::widget([
+        'options' => ['class' => 'navbar-nav'],
+        'items' => $navItems,
+    ]);
+    
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [

@@ -5,6 +5,7 @@ namespace app\controllers;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
+use app\service\DbManager;
 
 class SqlController extends Controller
 {
@@ -62,10 +63,9 @@ class SqlController extends Controller
         if (!empty($script)) {
             $params = Yii::$app->request->post('params');
             $useFile = Yii::$app->request->post('usefile') === 'true' ? true: false;
-            $username = Yii::$app->getDb()->username;
-            $password = Yii::$app->getDb()->password;
-            $dbname = 'flexap';
-            $command = "mysql -u $username -p$password";
+            $username = Yii::$app->user->identity->username;
+            $dbname = DbManager::getCurrentDbName();
+            $command = "mysql -u $username";
             
             if (!$useFile) {
                 $script = str_replace("'", "\\'", $script);
@@ -91,4 +91,19 @@ class SqlController extends Controller
         }
         return json_encode(['out' => htmlspecialchars($output)], JSON_UNESCAPED_UNICODE);
     }
+    
+    /**
+     * Select db.
+     * 
+     * @param string $dbname
+     */
+    public function actionDb($dbname = null)
+    {
+        DbManager::refreshAvailableDbNames();
+        if (!empty($dbname) && in_array($dbname, DbManager::getAvailableDbNames())) {
+            DbManager::setNewDbName($dbname);
+        }
+        return $this->redirect(Yii::$app->request->referrer);
+    }
+    
 }
