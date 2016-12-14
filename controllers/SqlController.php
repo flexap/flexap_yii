@@ -82,7 +82,7 @@ class SqlController extends Controller
                 $command .= " < $scriptPath";
             }
 
-            exec($command, $output);
+            exec($command . ' 2>&1', $output);
             $output = implode("\n", $output) . "\n\n";
             
             if ($useFile) {

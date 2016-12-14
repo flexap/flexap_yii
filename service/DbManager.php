@@ -25,20 +25,22 @@ class DbManager {
     
     public static function refreshAvailableDbNames() {
         $availableDbNames = [];
-        foreach (static::$DB_NAMES as $dbname) {
-            $connection = new Connection([
-                'dsn' => static::getDsnBy($dbname),
-                'username' => Yii::$app->user->identity->username,
-                'password' => '',
-            ]);
-            try {
-                $connection->open();
-                $availableDbNames[$dbname] = $dbname;
-                $connection->close();
-            } catch (Exception $exp) {
+        if (!Yii::$app->user->isGuest) {
+            foreach (static::$DB_NAMES as $dbname) {
+                $connection = new Connection([
+                    'dsn' => static::getDsnBy($dbname),
+                    'username' => Yii::$app->user->identity->username,
+                    'password' => '',
+                ]);
+                try {
+                    $connection->open();
+                    $availableDbNames[] = $dbname;
+                    $connection->close();
+                } catch (Exception $exp) {
+                }
             }
+            Yii::$app->session[self::AVAILABLE_DB_NAMES_SESSION_KEY] = $availableDbNames;
         }
-        Yii::$app->session[self::AVAILABLE_DB_NAMES_SESSION_KEY] = $availableDbNames;
         return $availableDbNames;
     }
     
