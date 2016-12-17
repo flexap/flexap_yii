@@ -36,36 +36,28 @@ AppAsset::register($this);
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
     ]);
-    
-    $dbItems = [];
+
     $dbNames = DbManager::getAvailableDbNames();
-    foreach ($dbNames as $dbname) {
-        $dbItems[] = [
-            'label' => $dbname,
-            'url' => ['/sql/db', 'dbname' => $dbname]
+    if (is_array($dbNames) && count($dbNames) >= 1) {        
+        $navItem = [
+            'label' => FA::icon('database') . ' ' . DbManager::getCurrentDbName(),
+            'encode' => false,
+            'visible' => !Yii::$app->user->isGuest
         ];
-    }
-    
-    $navItems = [];
-    if (count($dbNames) >= 1) {
-        $navItems = [
-            count($dbNames) > 1 ?
-                [
-                    'label' => FA::icon('database') . ' ' . DbManager::getCurrentDbName(),
-                    'encode' => false,
-                    'items' => $dbItems,
-                    'visible' => !Yii::$app->user->isGuest
-                ]
-            :
-                [
-                    'label' => FA::icon('database') . ' ' . DbManager::getCurrentDbName(),
-                    'encode' => false,
-                    'url' => ['/sql/db'],
-                    'visible' => !Yii::$app->user->isGuest
-                ],
-        ];
+        
+        if (count($dbNames) > 1) {
+            $navItem['items'] = [];
+            foreach ($dbNames as $dbname) {
+                $navItem['items'][] = [
+                    'label' => $dbname,
+                    'url' => ['/sql/db', 'dbname' => $dbname]
+                ];
+            }
+        } else {
+            $navItem['url'] = ['/sql/db'];
+        }
     } else {
-        $navItems[] = [
+        $navItem = [
             'label' => FA::icon('refresh'),
             'encode' => false,
             'url' => ['/sql/db'],
@@ -75,7 +67,7 @@ AppAsset::register($this);
     
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav'],
-        'items' => $navItems,
+        'items' => [$navItem],
     ]);
     
     echo Nav::widget([
@@ -146,19 +138,10 @@ AppAsset::register($this);
     </div>
 </div>
 
-<footer class="footer">
-    <div class="container">
-        <ul class="footer-links">
-            <li><a href="/site/index"><?= Yii::t('app', 'Home') ?></a></li>
-            <li><a href="/site/about"><?= Yii::t('app', 'About') ?></a></li>
-            <li><a href="/site/contact"><?= Yii::t('app', 'Contact') ?></a></li>
-        </ul>
-        
-        <p class="pull-left">&copy; <?= Yii::t('app', 'FlexAP') . ' ' . date('Y') ?></p>
-
-        <p class="pull-right"><?= Yii::powered() ?></p>
-    </div>
-</footer>
+<?php if (empty($this->params['no_layout_footer'])) {
+    echo $this->render('footer');    
+}
+?>
 
 <?php $this->endBody() ?>
 </body>
