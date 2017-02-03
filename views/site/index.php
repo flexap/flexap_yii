@@ -2,6 +2,7 @@
 
 use kartik\sidenav\SideNav;
 use app\assets\SidebarAsset;
+use app\service\DbManager;
 
 /* @var $this yii\web\View */
 
@@ -14,25 +15,29 @@ SidebarAsset::register($this);
 <div id="wrapper">
     <div id="sidebar-wrapper">
 <?php
-        echo SideNav::widget([
-            'type' => SideNav::TYPE_DEFAULT,
-            'heading' => '<span id="menu-hide" class="menu-toggle"><i class="indicator glyphicon glyphicon-chevron-left"></i></span> Data',
-            'items' => [
-                [
-                    'url' => '#',
-                    'label' => 'Home',
-                    'icon' => 'home'
-                ],
-                [
-                    'label' => 'Help',
-                    'icon' => 'question-sign',
-                    'items' => [
-                        ['label' => 'About', 'icon'=>'info-sign', 'url'=>'#'],
-                        ['label' => 'Contact', 'icon'=>'phone', 'url'=>'#'],
-                    ],
-                ],
+    $tables = DbManager::getTableNames();
+    
+    $tableItems = [];
+    foreach ($tables as $table) {
+        $tableItems[] = [
+            'label' => $table,
+            'url' => '#',
+            'options' => ['onclick' => "alert('$table');"]
+        ];
+    }
+    
+    echo SideNav::widget([
+        'type' => SideNav::TYPE_DEFAULT,
+        'heading' => '<span id="menu-hide" class="menu-toggle"><i class="indicator glyphicon glyphicon-chevron-left"></i></span> ' . Yii::t('app', 'Data'),
+        'indItem' => '',
+        'items' => [
+            [
+                'label' => Yii::t('app', 'Tables'),
+                'active' => true,
+                'items' => $tableItems,
             ],
-        ]);
+        ],
+    ]);
 ?>
     </div>
 
@@ -41,7 +46,7 @@ SidebarAsset::register($this);
         
         <div class="container-fluid">
             <div class="jumbotron">
-                <h1> <?= Yii::t('app','Congratulations!'); ?> </h1>
+                <h1> <?= Yii::t('app', 'Congratulations!'); ?> </h1>
 
                 <p class="lead">
                     <?= Yii::t('app', 'Index greeting'); ?></p>
@@ -52,23 +57,23 @@ SidebarAsset::register($this);
             <div class="body-content">
                 <div class="row">
                     <div class="col-lg-4">
-                        <h2><?= Yii::t('app','Heading') ?></h2>
+                        <h2><?= Yii::t('app', 'Heading') ?></h2>
 
                         <p><?= Yii::t('app', 'Random text'); ?></p>
 
                         <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/"><?= Yii::t('app','Yii Documentation') .' '. "&raquo"; ?></a></p>
                     </div>
                     <div class="col-lg-4">
-                        <h2><?= Yii::t('app','Heading') ?></h2>
+                        <h2><?= Yii::t('app', 'Heading') ?></h2>
 
-                        <p><?= Yii::t('app','Random text')?></p>
+                        <p><?= Yii::t('app', 'Random text')?></p>
 
                         <p><a class="btn btn-default" href="http://www.yiiframework.com/forum/"><?= Yii::t('app','Yii Forum') .' '. "&raquo"; ?></a></p>
                     </div>
                     <div class="col-lg-4">
-                        <h2><?= Yii::t('app','Heading') ?></h2>
+                        <h2><?= Yii::t('app', 'Heading') ?></h2>
 
-                        <p><?= Yii::t('app','Random text')?></p>
+                        <p><?= Yii::t('app', 'Random text')?></p>
 
                         <p><a class="btn btn-default" href="http://www.yiiframework.com/extensions/"><?= Yii::t('app','Yii Extensions') .' '. "&raquo"; ?></a></p>
                     </div>

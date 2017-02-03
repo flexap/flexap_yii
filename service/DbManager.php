@@ -69,4 +69,44 @@ class DbManager {
         $session[self::CURRENT_DB_NAME_SESSION_KEY] = $dbname;
     }
     
+    public static function getTableNames($dbname = null) {
+        $tables = [];
+        if ($dbname === NULL) {
+            $dbname = static::getCurrentDbName();
+        }
+        if (!empty($dbname)) {
+            $tables = static::queryAll(static::createAndOpenConnection($dbname), 'SHOW TABLES', []);
+            if (!empty($tables)) {
+                foreach ($tables as $index => $row) {
+                    $tables[$index] = array_values($row)[0];
+                }
+            }
+        }
+        return $tables;
+    }
+    
+    protected static function createAndOpenConnection($dbname) {
+        $connection = new Connection([
+            'dsn' => static::getDsnBy($dbname),
+            'username' => Yii::$app->user->identity->username,
+            'password' => '',
+        ]);
+        $connection->open();
+        return $connection;
+    }
+    
+    protected static function queryAll($connection, $query, $default = NULL) {
+        $result = $default;
+        $transaction = $connection->beginTransaction();
+        try {
+            $command = $connection->createCommand($query);
+            $result = $command->queryAll();
+            $transaction->commit();
+            $connection->close();
+        } catch (Exception $exp) {
+            $transaction->rollBack();
+            throw $exp;
+        }
+        return $result;
+    }
 }
