@@ -64,3 +64,30 @@ footer > .container {
 #sidebar-wrapper .nav-stacked > li + li {
     margin-top: 0px;
 }
+
+#sidebar-wrapper .kv-sidenav li a {
+    color: #555;
+}
+
+#sidebar-wrapper .kv-sidenav li.active > a {
+    color: #fff;
+}
+
+#sidebar-wrapper .kv-sidenav li.active > a .data-description {
+    color: #f0f0f0;
+}
+
+#sidebar-wrapper .kv-sidenav li ul li.active a,
+#sidebar-wrapper .kv-sidenav li ul li.active a:active {
+    background: #44b5f6;
+    border-color: #44b5f6;
+}
+
+#sidebar-wrapper .kv-sidenav li ul li.active a:hover {
+    background: #49c0ff;
+    border-color: #49c0ff;
+}
+
+#sidebar-wrapper .kv-sidenav li.active > a.kv-toggle:hover {
+    background: #387fc3;
+}

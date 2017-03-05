@@ -69,6 +69,7 @@ class SqlController extends Controller
             
             if (!$useFile) {
                 $script = str_replace("'", "\\'", $script);
+                $script = str_replace('"', '\"', $script);
                 $command .= " -e '$script'";
             }
             $command .= " $params $dbname";
@@ -103,7 +104,7 @@ class SqlController extends Controller
         if (!empty($dbname) && in_array($dbname, DbManager::getAvailableDbNames())) {
             DbManager::setNewDbName($dbname);
         }
-        return $this->redirect(Yii::$app->request->referrer);
+        return $this->redirect(strtok(Yii::$app->request->referrer, '?'));
     }
     
 }

@@ -161,3 +161,12 @@ a.desc:after {
     margin-top: 3px;
     margin-bottom: 3px;
 }
+
+.data-caption {
+    padding-top: 0px;
+    margin-top: 0px;
+}
+
+.data-description {
+    color: #999;
+}

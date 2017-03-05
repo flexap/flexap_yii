@@ -21,7 +21,7 @@ class SiteController extends Controller
                 'only' => ['logout'],
                 'rules' => [
                     [
-                        'actions' => ['logout'],
+                        'actions' => ['logout', 'create'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -57,9 +57,9 @@ class SiteController extends Controller
      *
      * @return string
      */
-    public function actionIndex()
+    public function actionIndex($tableName = NULL)
     {
-        return $this->render('index');
+        return $this->render('index', ['tableName' => $tableName]);
     }
 
     /**
